@@ -1,12 +1,11 @@
-# [Stanford Starter](https://github.com/SU-SWS/stanford_starter)
-##### Version: 8.x-1.0-dev
+# [Admin Guide Subtheme]([https://github.com/SU-SWS/uhr_adminguide_subtheme])
+##### Version: 1.x
 
-Changelog: [Changelog.txt](CHANGELOG.txt)
 
 Description
 ---
 
-Stanford Starter is a Stanford sub-theme that works with the Stanford Basic theme.
+Admin Guide Subtheme is a Stanford sub-theme that works with the Stanford Basic theme.
 
 Documentation
 ---
