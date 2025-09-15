@@ -1,0 +1,116 @@
+{#
+/**
+ * @file
+ * Main Page Template.
+ *
+ * Available variables:
+ * - page: The content regions for this page.
+ * - attributes: HTML attributes for the region div.
+ *
+ * @see template_preprocess_page()
+ * Adds chatbot
+ */
+#}
+
+{# Template Paths #}
+{%- if template_brand_bar is empty -%}
+  {%- set template_brand_bar = "@decanter/components/brand-bar/brand-bar.twig" -%}
+{%- endif -%}
+
+{%- if template_global_footer is empty -%}
+  {%- set template_global_footer = "@decanter/components/global-footer/global-footer.twig" -%}
+{%- endif -%}
+{# End Template Paths. #}
+
+{# Masthead Section. #}
+{%- block block_header -%}
+  {%- if page.header or page.search or page.menu -%}
+    <header class="su-masthead su-masthead--right" data-nosnippet>
+
+      {% block block_skiplinks %}
+        <a href="#main-content" class="visually-hidden focusable su-skipnav su-skipnav--content">
+          {{ 'Skip to main content'|t }}
+        </a>
+        <a href="#secondary-navigation" class="visually-hidden focusable su-skipnav su-skipnav--secondary">
+          {{ 'Skip to secondary navigation'|t }}
+        </a>
+      {% endblock %}
+
+      {# Brand Bar #}
+      {%- block block_brandbar -%}
+        {%- include template_brand_bar with { modifier_class : brand_bar_variant } -%}
+      {%- endblock -%}
+
+      {# Help Section #}
+      {%- block block_help -%}
+        {{ page.help }}
+      {%- endblock -%}
+
+      <section class="su-masthead--inner" aria-label="Page logo, menu and search">
+        {% if page.header %}
+          <div class="region region-header">
+            {{ page.header }}
+          </div>
+        {% endif %}
+        {% if page.search %}
+          <div class="region region-search">
+            {{ page.search }}
+          </div>
+        {% endif %}
+        {% if page.menu %}
+          <div class="region region-menu">
+            {{ page.menu }}
+          </div>
+        {% endif %}
+      </section>
+    </header>
+  {%- endif -%}
+{%- endblock -%}
+
+{# Main Page Content Section #}
+<main class="page-content" id="page-content">
+  {%- block block_main -%}
+    {{ page.content }}
+  {%- endblock -%}
+
+  <button id="back-to-top">
+    <span class="fas fa-chevron-up"></span>
+    Back to Top
+  </button>
+</main>
+
+{# Footer Section #}
+{%- block block_footer -%}
+  <footer id="footer" data-nosnippet>
+    {{ page.footer }}
+    {%- include template_global_footer with { modifier_class : global_footer_variant }  -%}
+  </footer>
+{%- endblock -%}
+
+{# Dialogflow Messenger Integration #}
+<link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+<script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+<df-messenger
+  location="us-west1"
+  project-id="uit-uit-et-servicenow-ai-dev"
+  agent-id="d11b8aea-2e99-48b7-a28c-0589d9c1d81d"
+  language-code="en"
+  max-query-length="-1"
+  allow-feedback="all">
+  <df-messenger-chat-bubble
+   chat-title="Research Compliance Agent">
+  </df-messenger-chat-bubble>
+</df-messenger>
+<style>
+  df-messenger {
+    z-index: 999;
+    position: fixed;
+    --df-messenger-font-color: #000;
+    --df-messenger-font-family: Google Sans;
+    --df-messenger-chat-background: #f3f6fc;
+    --df-messenger-message-user-background: #d3e3fd;
+    --df-messenger-message-bot-background: #fff;
+    bottom: 16px;
+    right: 16px;
+  }
+</style>
