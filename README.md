@@ -1,4 +1,4 @@
-# [Admin Guide Subtheme]([https://github.com/SU-SWS/uhr_adminguide_subtheme])
+# [Admin Guide Subtheme](https://github.com/SU-SWS/uhr_adminguide_subtheme)
 ##### Version: 1.x
 
 
