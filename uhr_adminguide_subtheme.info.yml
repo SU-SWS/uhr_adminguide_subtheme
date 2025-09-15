@@ -1,12 +1,12 @@
-name: Stanford Starter
+name: Admin Guide
 type: theme
-description: 'Stanford Starter Theme.'
+description: 'Admin Guide Subtheme for testing Chatbots'
 package: Stanford
-version: 8.x-1.0-dev
-core_version_requirement: ^9 || ^10
+version: 1.0.0
+core_version_requirement: ^9 || ^10 || ^11
 base theme: stanford_basic
 libraries:
-  - stanford_starter/allpages
+  - uhr_adminguide_subtheme/allpages
 
 regions:
   page_top: 'Page top'
