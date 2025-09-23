@@ -98,175 +98,88 @@
       agent-id="b94f606a-5218-479d-8cc9-59f3ec926ae2"
       language-code="en"
       max-query-length="-1"
-      allow-feedback="all">
-      <df-messenger-chat-bubble chat-title="Admin Guide Assistant">
-  </df-messenger-chat-bubble>
-</df-messenger>
+      allow-feedback="-1">
+      <df-messenger-chat-bubble
+       chat-title="Admin Guide Assistant"
+       bot-writing-text="Generating answer..."
+       chat-subtitle="Your AI-Powered guide to Stanford Policies"
+       chat-width="360"
+    	 chat-height="550"
+       placeholder-text="Type a question...">
+      </df-messenger-chat-bubble>      
+    </df-messenger>
 
-<style>
-  df-messenger {
-    z-index: 999;
-    position: fixed;
-    bottom: 16px;
-    right: 16px;
-    
-    /* Stanford Cardinal Brand Colors */
-    --df-messenger-primary-color: #8C1515; /* Stanford Cardinal Red */
-    --df-messenger-font-color: #2e2d29; /* Stanford Dark Gray */
-    --df-messenger-font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
-    
-    /* Chat Interface */
-    --df-messenger-chat-background: #ffffff;
-    --df-messenger-chat-border-radius: 12px;
-    --df-messenger-chat-box-shadow: 0 8px 32px rgba(140, 21, 21, 0.15);
-    
-    /* Message Styling */
-    --df-messenger-message-user-background: #8C1515; /* Cardinal Red for user messages */
-    --df-messenger-message-user-font-color: #ffffff;
-    --df-messenger-message-bot-background: #f4f4f1; /* Stanford Light Gray */
-    --df-messenger-message-bot-font-color: #2e2d29;
-    --df-messenger-message-border-radius: 18px;
-    --df-messenger-message-padding: 12px 16px;
-    
-    /* Input Field */
-    --df-messenger-input-background: #ffffff;
-    --df-messenger-input-font-color: #2e2d29;
-    --df-messenger-input-border-color: #d4d1c9;
-    --df-messenger-input-placeholder-font-color: #767674;
-    
-    /* Send Button */
-    --df-messenger-send-icon-color: #8C1515;
-    --df-messenger-send-icon-color-hover: #b91515;
-    
-    /* Chat Bubble - white with cardinal border for visibility */
-    --df-messenger-chat-bubble-background: #ffffff;
-    --df-messenger-chat-bubble-icon-color: #8C1515;
-    --df-messenger-chat-bubble-border-radius: 50%;
-    --df-messenger-chat-bubble-size: 60px;
-    
-    /* Ensure all icons are white on cardinal background */
-    --df-messenger-icon-color: #ffffff;
-    --df-messenger-minimize-icon-color: #ffffff;
-    --df-messenger-close-icon-color: #ffffff;
-    
-    /* Header */
-    --df-messenger-titlebar-background: #8C1515;
-    --df-messenger-titlebar-font-color: #ffffff;
-    --df-messenger-titlebar-icon-color: #ffffff;
-    
-    /* Scrollbar */
-    --df-messenger-chat-scroll-button-background: #8C1515;
-    --df-messenger-chat-scroll-button-background-hover: #b91515;
-    
-    /* Feedback buttons */
-    --df-messenger-feedback-thumbs-up-color: #8C1515;
-    --df-messenger-feedback-thumbs-down-color: #8C1515;
-    
-    /* Loading animation */
-    --df-messenger-loading-circle-color: #8C1515;
-    
-    /* Additional Stanford styling */
-    --df-messenger-bot-writing-background: #f4f4f1;
-    --df-messenger-bot-writing-font-color: #767674;
-  }
-  
-  /* Custom Stanford enhancements */
-  df-messenger::part(chat-wrapper) {
-    border: 2px solid #8C1515;
-    box-shadow: 0 12px 40px rgba(140, 21, 21, 0.2);
-    min-height: 400px !important;
-    height: auto !important;
-  }
-  
-  /* Ensure chat window opens properly */
-  df-messenger[chat-opened]::part(chat-wrapper) {
-    display: flex !important;
-    flex-direction: column !important;
-    height: 500px !important;
-    max-height: 70vh !important;
-    width: 350px !important;
-  }
-  
-  /* Fix the chat body visibility */
-  df-messenger::part(chat-window) {
-    display: flex !important;
-    flex-direction: column !important;
-    height: 100% !important;
-    overflow: hidden !important;
-  }
-  
-  /* Ensure message list is visible */
-  df-messenger::part(message-list) {
-    flex: 1 !important;
-    overflow-y: auto !important;
-    display: block !important;
-    visibility: visible !important;
-  }
-  
-  /* Fix input area */
-  df-messenger::part(input-wrapper) {
-    display: flex !important;
-    visibility: visible !important;
-    flex-shrink: 0 !important;
-  }
-  
-  df-messenger::part(titlebar) {
-    background: linear-gradient(135deg, #8C1515 0%, #b91515 100%);
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
-  
-  df-messenger::part(chat-bubble-button) {
-    background: linear-gradient(135deg, #8C1515 0%, #b91515 100%);
-    box-shadow: 0 4px 16px rgba(140, 21, 21, 0.3);
-    transition: all 0.3s ease;
-  }
-  
-  df-messenger::part(chat-bubble-button):hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(140, 21, 21, 0.4);
-  }
-  
-  df-messenger::part(user-message) {
-    background: linear-gradient(135deg, #8C1515 0%, #b91515 100%);
-    box-shadow: 0 2px 8px rgba(140, 21, 21, 0.2);
-  }
-  
-  df-messenger::part(bot-message) {
-    border-left: 3px solid #8C1515;
-  }
-  
-  /* Stanford Cardinal accent for links */
-  df-messenger a {
-    color: #8C1515 !important;
-    text-decoration: underline;
-  }
-  
-  df-messenger a:hover {
-    color: #b91515 !important;
-  }
-  
-  /* Stanford branding watermark (optional) */
-  df-messenger::after {
-    content: "";
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    width: 20px;
-    height: 20px;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="<http://www.w3.org/2000/svg>" viewBox="0 0 100 100"><text y="50" font-size="60" fill="%23%8C1515">S</text></svg>') no-repeat center;
-    background-size: contain;
-    opacity: 0.3;
-    pointer-events: none;
-  }
-  
-  /* Responsive design */
-  @media (max-width: 768px) {
-    df-messenger {
-      --df-messenger-chat-bubble-size: 56px;
-      bottom: 12px;
-      right: 12px;
-    }
-  }
-</style>
+    <style>
+      df-messenger {
+        z-index: 999;
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        
+  /* correct icon variables */
+  --df-messenger-titlebar-icon-font-color: #ffffff;      /* explicit for titlebar icons */
+        
+        /* Stanford Cardinal Brand Colors */
+        --df-messenger-primary-color: #8C1515; /* Stanford Cardinal Red */
+        --df-messenger-font-color: #2e2d29; /* Stanford Dark Gray */
+        --df-messenger-font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+        
+        /* Chat Interface */
+        --df-messenger-chat-background: #ffffff;
+        
+        /* Message Styling */
+        --df-messenger-message-user-background: #8C1515; /* Cardinal Red for user messages */
+        --df-messenger-message-user-font-color: #ffffff;
+        --df-messenger-message-bot-background: #f4f4f1; /* Stanford Light Gray */
+        --df-messenger-message-bot-font-color: #2e2d29;
+        --df-messenger-message-border-radius: 18px;
+        --df-messenger-message-padding: 12px 16px;
+        
+        /* Input Field */
+        --df-messenger-input-background: #ffffff;
+        --df-messenger-input-font-color: #2e2d29;
+        --df-messenger-input-border-color: #d4d1c9;
+        --df-messenger-input-placeholder-font-color: #767674;
+        
+        /* Send Button */
+        --df-messenger-send-icon-color: #8C1515;
+        --df-messenger-send-icon-color-hover: #b91515;
+        
+        /* Chat Bubble - white with cardinal border for visibility */
+        --df-messenger-chat-bubble-background: #ffffff;
+        --df-messenger-chat-bubble-icon-color: #8C1515;
+        --df-messenger-chat-bubble-border-radius: 50%;
+        --df-messenger-chat-bubble-size: 60px;
+        
+        /* Ensure all icons are white on cardinal background */
+        --df-messenger-icon-color: #ffffff;
+        --df-messenger-minimize-icon-color: #ffffff;
+        --df-messenger-titlebar-subtitle-font-color: #ffffff;
+        --df-messenger-close-icon-color: #ffffff;
+        
+        /* Header */
+        --df-messenger-titlebar-background: #8C1515;
+        --df-messenger-titlebar-font-color: #ffffff;
+        --df-messenger-titlebar-icon-color: #ffffff;
+        
+        /* Scrollbar */
+        --df-messenger-chat-scroll-button-background: #8C1515;
+        --df-messenger-chat-scroll-button-background-hover: #b91515;
+        --df-messenger-chat-scroll-button-font-color: #ffffff;
+        
+        /* Feedback buttons */
+        --df-messenger-feedback-thumbs-up-color: #8C1515;
+        --df-messenger-feedback-thumbs-down-color: #8C1515;
+        
+        /* Loading animation */
+        --df-messenger-loading-circle-color: #8C1515;
+        
+        /* Additional Stanford styling */
+        --df-messenger-bot-writing-background: #f4f4f1;
+        --df-messenger-bot-writing-font-color: #767674;
+      }
+      
+
+    </style>
+
 </div>
