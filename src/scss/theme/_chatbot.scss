@@ -1,0 +1,89 @@
+@charset "UTF-8";
+// Import Decanter Library:
+
+// override default button styles here and add additional button classes as needed.
+
+df-messenger {
+  z-index: 999;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+
+/* correct icon variables */
+  --df-messenger-titlebar-icon-font-color: #{$su-color-white};      /* explicit for titlebar icons */
+
+  /* Stanford Cardinal Brand Colors */
+  --df-messenger-primary-color: #{$su-color-cardinal-red}; /* Stanford Cardinal Red */
+  --df-messenger-font-color: #{$su-color-black}; /* Stanford Dark Gray */
+
+  /* Chat Interface */
+  --df-messenger-chat-background: #{$su-color-white};
+  --df-messenger-chat-padding: 15px;
+  --df-messenger-message-font-family: #{$su-font-sans};
+  --df-messenger-font-family: #{$su-font-sans};
+
+
+  /* Message Styling */
+  --df-messenger-message-user-background: #{$su-color-cardinal-red}; /* Cardinal Red for user messages */
+  --df-messenger-message-user-font-color: #{$su-color-white};
+  --df-messenger-message-bot-background: #{$su-color-foggy-light}; /* Stanford Light Gray */
+  --df-messenger-message-bot-font-color: #{$su-color-black};
+  --df-messenger-message-border-radius: 18px;
+  --df-messenger-message-padding: 12px 16px;
+  --df-messenger-message-font-size: 1.2em;
+
+  /* Message Link  styles */
+  --df-messenger-link-background: transparent;
+  --df-messenger-link-background-color: transparent;
+  --df-messenger-link-border: none;
+  --df-messenger-link-border-radius: 0;
+  --df-messenger-link-font-color: #{$su-color-bright-blue};
+  --df-messenger-default-link-font-color: #{$su-color-bright-blue};
+  --df-messenger-link-padding: 0;
+  --df-messenger-link-decoration: underline;
+  --df-messenger-default-link-decoration: underline;
+  --df-messenger-link-hover-font-color: #{$su-color-black};
+
+  /* Input Field */
+  --df-messenger-input-background: #{$su-color-white};
+  --df-messenger-input-font-color: #{$su-color-black};
+  --df-messenger-input-border-color: #{$su-color-black-20};
+  --df-messenger-input-placeholder-font-color: #{$su-color-black-60};
+
+  /* Send Button */
+  --df-messenger-send-icon-color: #{$su-color-cardinal-red};
+  --df-messenger-send-icon-color-hover: #{$su-color-cardinal-red-light};
+
+  /* Chat Bubble - white with cardinal border for visibility */
+  --df-messenger-chat-bubble-background: #{$su-color-white};
+  --df-messenger-chat-bubble-icon-color: #{$su-color-cardinal-red};
+  --df-messenger-chat-bubble-border-radius: 50%;
+  --df-messenger-chat-bubble-size: 60px;
+
+  /* Ensure all icons are white on cardinal background */
+  --df-messenger-icon-color: #{$su-color-white};
+  --df-messenger-minimize-icon-color: #{$su-color-white};
+  --df-messenger-titlebar-subtitle-font-color: #{$su-color-white};
+  --df-messenger-close-icon-color: #{$su-color-white};
+
+  /* Header */
+  --df-messenger-titlebar-background: #{$su-color-cardinal-red};
+  --df-messenger-titlebar-font-color: #{$su-color-white};
+  --df-messenger-titlebar-icon-color: #{$su-color-white};
+
+  /* Scrollbar */
+  --df-messenger-chat-scroll-button-background: #{$su-color-cardinal-red};
+  --df-messenger-chat-scroll-button-background-hover: #{$su-color-cardinal-red-light};
+  --df-messenger-chat-scroll-button-font-color: #{$su-color-white};
+
+  /* Feedback buttons */
+  --df-messenger-feedback-thumbs-up-color: #{$su-color-cardinal-red};
+  --df-messenger-feedback-thumbs-down-color: #{$su-color-cardinal-red};
+
+  /* Loading animation */
+  --df-messenger-loading-circle-color: #{$su-color-cardinal-red};
+
+  /* Additional Stanford styling */
+  --df-messenger-bot-writing-background: #{$su-color-foggy-light};
+  --df-messenger-bot-writing-font-color: #{$su-color-black-60};
+}

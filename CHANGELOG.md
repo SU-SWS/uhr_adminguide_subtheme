@@ -1,4 +1,4 @@
-# Stanford Starter Theme
+# Admin Guide Subtheme for testing Chatbots
 
 8.x-X.X
 --------------------------------------------------------------------------------
