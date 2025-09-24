@@ -58,7 +58,8 @@ df-messenger {
   --df-messenger-chat-bubble-background: #{$su-color-white};
   --df-messenger-chat-bubble-icon-color: #{$su-color-cardinal-red};
   --df-messenger-chat-bubble-border-radius: 50%;
-  --df-messenger-chat-bubble-size: 60px;
+  --df-messenger-chat-bubble-size: 75px;
+  --df-messenger-chat-bubble-border: 1px solid #{$su-color-cardinal-red};
 
   /* Ensure all icons are white on cardinal background */
   --df-messenger-icon-color: #{$su-color-white};
