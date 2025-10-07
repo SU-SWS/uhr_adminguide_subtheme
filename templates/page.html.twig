@@ -64,6 +64,10 @@
         {% endif %}
       </section>
     </header>
+
+    {# Chatbot include. Up higher in DOM for screenreaders #}
+    {% include '@uhr_adminguide_subtheme/chat.html.twig' %}
+
   {%- endif -%}
 {%- endblock -%}
 
@@ -85,8 +89,6 @@
     {{ page.footer }}
     {%- include template_global_footer with { modifier_class : global_footer_variant }  -%}
   </footer>
-
-{% include '@uhr_adminguide_subtheme/chat.html.twig' %}
 
 {%- endblock -%}
 
