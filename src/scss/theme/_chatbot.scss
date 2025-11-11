@@ -22,7 +22,6 @@ df-messenger {
   --df-messenger-message-font-family: #{$su-font-sans};
   --df-messenger-font-family: #{$su-font-sans};
 
-
   /* Message Styling */
   --df-messenger-message-user-background: #{$su-color-cardinal-red}; /* Cardinal Red for user messages */
   --df-messenger-message-user-font-color: #{$su-color-white};
@@ -43,6 +42,7 @@ df-messenger {
   --df-messenger-link-decoration: underline;
   --df-messenger-default-link-decoration: underline;
   --df-messenger-link-hover-font-color: #{$su-color-black};
+  --df-messenger-message-ul-padding: 0 0 0 25px;
 
   /* Input Field */
   --df-messenger-input-background: #{$su-color-white};
